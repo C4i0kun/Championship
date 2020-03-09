@@ -39,7 +39,7 @@ public class Date {
 		this.year = year;
 	}
 	
-	/* Useful functions */
+	/* Static functions */
 	
 	public static boolean datePassed(Date date, Date today) {
 		if (today.getYear() > date.getYear()) {

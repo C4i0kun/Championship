@@ -6,16 +6,18 @@ public class Game {
 	private Team firstTeam;
 	private Team secondTeam;
 	private int firstTeamGoals;
-	private int secontTeamGoals;
+	private int secondTeamGoals;
 	
 	/* Constructor */
 	
-	public Game(Date date, Date today, Team firstTeam, Team secondTeam) {
-		this.setDate(date);
-		this.setFirstTeam(firstTeam);
-		this.setSecondTeam(secondTeam);
+	public Game(Date date, Team firstTeam, Team secondTeam) {
+		this.date = date;
+		this.firstTeam = firstTeam;
+		this.secondTeam = secondTeam;
 		
-		this.played = Date.datePassed(date, today);
+		this.played = false;
+		this.firstTeamGoals = 0;
+		this.secondTeamGoals = 0;
 	}
 	
 	/* Getters and Setters */
@@ -60,12 +62,12 @@ public class Game {
 		this.firstTeamGoals = firstTeamGoals;
 	}
 
-	public int getSecontTeamGoals() {
-		return secontTeamGoals;
+	public int getSecondTeamGoals() {
+		return secondTeamGoals;
 	}
 
-	public void setSecontTeamGoals(int secontTeamGoals) {
-		this.secontTeamGoals = secontTeamGoals;
+	public void setSecondTeamGoals(int secondTeamGoals) {
+		this.secondTeamGoals = secondTeamGoals;
 	}
 	
 	
