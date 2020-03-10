@@ -2,16 +2,19 @@ package championship;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Collections;
 
 public class Counter {
 	private Calendar calendar;
 	ArrayList<Team> listOfTeams;
 	
+	
+	/* Constructor */
 	public Counter(Calendar calendar) {
 		this.calendar = calendar;
 		this.createListOfTeams();
-		
 	}
+	
 	
 	/* Private functions */
 	private void createListOfTeams() {
@@ -34,6 +37,7 @@ public class Counter {
 			}
 		}
 	}
+	
 
 	/* Getters and Setters */
 	public Calendar getCalendar() {
@@ -43,6 +47,7 @@ public class Counter {
 	public void setCalendar(Calendar calendar) {
 		this.calendar = calendar;
 	}
+	
 	
 	/* General Functions */
 	public void calculateTeamStats() {
@@ -77,6 +82,7 @@ public class Counter {
 	}
 	
 	public void printChampionshipTable() {
+		Collections.sort(listOfTeams);
 		Iterator<Team> iterator = listOfTeams.iterator();
 		
 		System.out.println("Time | Total de Pontos | Gols Pró | Saldo de Gols | Jogos Jogados");

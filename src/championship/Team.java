@@ -1,6 +1,6 @@
 package championship;
 
-public class Team {
+public class Team implements Comparable<Team> {
 	private String name;
 	private int gamesPlayed;
 	private int goalsDifference;
@@ -74,5 +74,29 @@ public class Team {
 	
 	public void addGamePlayed() {
 		this.gamesPlayed++;
+	}
+
+	/* Comparable methods */
+	@Override
+	public int compareTo(Team anotherTeam) {
+		if (this.totalPoints < anotherTeam.totalPoints) {
+			return 1;
+		} else if (this.totalPoints > anotherTeam.totalPoints) {
+			return -1;
+		} else {
+			if (this.goalsDifference < anotherTeam.goalsDifference) {
+				return 1;
+			} else if (this.goalsDifference > anotherTeam.goalsDifference) {
+				return -1;
+			} else {
+				if (this.goalsFor < anotherTeam.goalsFor) {
+					return 1;
+				} else if (this.goalsFor > anotherTeam.goalsFor) {
+					return -1;
+				} else {
+					return 0;
+				}
+			}
+		}
 	}
 }
