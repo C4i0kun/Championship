@@ -21,8 +21,9 @@ public class Counter {
 		Iterator<Game> iterator = listOfGames.iterator();
 		
 		while(iterator.hasNext()) {
-			Team firstTeam = iterator.next().getFirstTeam();
-			Team secondTeam = iterator.next().getSecondTeam();
+			Game currentGame = iterator.next();
+			Team firstTeam = currentGame.getFirstTeam();
+			Team secondTeam = currentGame.getSecondTeam();
 			
 			if (!listOfTeams.contains(firstTeam)) {
 				listOfTeams.add(firstTeam);
@@ -79,7 +80,8 @@ public class Counter {
 		Iterator<Team> iterator = listOfTeams.iterator();
 		
 		while(iterator.hasNext()) {
-			System.out.println(iterator.next().getName() + " | " + iterator.next().getTotalPoints() + " | " + iterator.next().getGamesPlayed());
+			Team currentTeam = iterator.next();
+			System.out.println(currentTeam.getName() + " | " + currentTeam.getTotalPoints() + " | " + currentTeam.getGamesPlayed());
 		}
 	}
 }
