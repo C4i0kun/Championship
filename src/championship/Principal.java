@@ -11,7 +11,7 @@ public class Principal {
 		Date secondDate = new Date(9, 3, 2020);
 		Date thirdDate = new Date(13, 3, 2020);
 		
-		Date today = new Date(10, 3, 2020);
+		Date today = new Date(15, 3, 2020);
 		
 		Calendar calendar = new Calendar(today);
 		calendar.addNewGame(firstDate, teamA, teamB);

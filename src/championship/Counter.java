@@ -79,9 +79,11 @@ public class Counter {
 	public void printChampionshipTable() {
 		Iterator<Team> iterator = listOfTeams.iterator();
 		
+		System.out.println("Time | Total de Pontos | Gols Pró | Saldo de Gols | Jogos Jogados");
+		
 		while(iterator.hasNext()) {
 			Team currentTeam = iterator.next();
-			System.out.println(currentTeam.getName() + " | " + currentTeam.getTotalPoints() + " | " + currentTeam.getGamesPlayed());
+			System.out.println("  " + currentTeam.getName() + "  |        " + String.format("%02d", currentTeam.getTotalPoints()) + "       |    " + String.format("%03d", currentTeam.getGoalsFor()) + "   |      " + String.format("%03d", currentTeam.getGoalsDifference()) + "      |      " + String.format("%02d", currentTeam.getGamesPlayed()));
 		}
 	}
 }
