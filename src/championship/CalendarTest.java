@@ -1,3 +1,9 @@
+/*
+ * Caio de Souza Barbosa Costa - NUSP: 11257734
+ * Lucas Rodrigues Cupertino Cardoso - NUSP: 11257543
+ * 
+ */
+
 package championship;
 
 import static org.junit.jupiter.api.Assertions.*;
