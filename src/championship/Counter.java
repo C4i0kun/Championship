@@ -6,6 +6,7 @@ import java.util.Collections;
 
 public class Counter {
 	private Calendar calendar;
+	private boolean championshipEnded = true;
 	ArrayList<Team> listOfTeams;
 	
 	
@@ -48,9 +49,15 @@ public class Counter {
 		this.calendar = calendar;
 	}
 	
+	public int getNumberOfTeams() {
+		return listOfTeams.size();
+	}
+	
 	
 	/* General Functions */
 	public void calculateTeamStats() {
+		this.createListOfTeams();
+		
 		ArrayList<Game> listOfGames = this.calendar.getListOfGames();
 		Iterator<Game> iterator = listOfGames.iterator();
 		
@@ -77,7 +84,9 @@ public class Counter {
 					firstTeam.addToTotalPoints(1);
 					secondTeam.addToTotalPoints(1);
 				}
-			}	
+			} else {
+				championshipEnded = false;
+			}
 		}
 	}
 	
@@ -85,11 +94,18 @@ public class Counter {
 		Collections.sort(listOfTeams);
 		Iterator<Team> iterator = listOfTeams.iterator();
 		
-		System.out.println("Time | Total de Pontos | Gols Pró | Saldo de Gols | Jogos Jogados");
+		System.out.println("Time | Total de Pontos | Saldo de Gols | Gols Pró | Jogos Jogados");
 		
 		while(iterator.hasNext()) {
 			Team currentTeam = iterator.next();
-			System.out.println("  " + currentTeam.getName() + "  |        " + String.format("%02d", currentTeam.getTotalPoints()) + "       |    " + String.format("%03d", currentTeam.getGoalsFor()) + "   |      " + String.format("%03d", currentTeam.getGoalsDifference()) + "      |      " + String.format("%02d", currentTeam.getGamesPlayed()));
+			System.out.println("  " + currentTeam.getName() + "  |        " + String.format("%02d", currentTeam.getTotalPoints()) + "       |      " + String.format("%03d", currentTeam.getGoalsDifference()) + "      |    " + String.format("%03d", currentTeam.getGoalsFor()) + "   |      " + String.format("%02d", currentTeam.getGamesPlayed()));
 		}
+		
+		if (championshipEnded == true) {
+			System.out.println("\nO vencedor é o time " + this.listOfTeams.get(0).getName() + "!");
+		} else {
+			System.out.println("\nO campeonato ainda está ocorrendo, portanto, ainda não há um vencedor!");
+		}
+		
 	}
 }
